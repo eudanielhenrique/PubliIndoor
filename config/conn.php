@@ -1,8 +1,8 @@
 <?php
 $servidor = "localhost";
-$usuario = "agen1660_gramazini";
-$senha = "XGnRqGO7sumO";
-$dbname = "agen1660_indoor";
+$usuario = "as";
+$senha = "XdsumO";
+$dbname = "dd";
 //Criar a conexao
 $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 
