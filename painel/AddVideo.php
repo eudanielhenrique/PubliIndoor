@@ -76,34 +76,6 @@ if (isset($_POST['upload'])) {
 				<input type="submit" name="upload" value="Adicionar" class="form-control-file">
 			</form>
 		</div>
-		<div class="row">
-			<?php
-			include("../config/conn.php");
-			$q = "SELECT * FROM `video`";
-			$query = mysqli_query($conn, $q);
-			while ($row = mysqli_fetch_array($query)) {
-				$numero = $row['id'];
-				$name = $row['name'];
-				$desc = $row['description'];
-
-			?>
-
-				<div class="col-md-4">
-					<div class="card shadow-sm" style="width: 23rem;">
-						<video width="100%" controls>
-							<source src="<?php echo '../upload/videos/' . $name; ?>" class="card-img-top">
-						</video>
-						<div class="card-body">
-							<center>
-								<p class="card-text"><?php echo $desc ?><br><br>
-									<a href="func/deletarVideo.php" type="submit" class="btn btn-outline-dark">Excluir</a></p>
-							</center>
-						</div>
-					</div>
-					<br>
-				</div>
-			<?php } ?>
-		</div>
 	</div>
 </body>
 
