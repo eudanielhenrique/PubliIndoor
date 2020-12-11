@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="assets/css/main.css" />
 
 
-<div class="box-video">
+<div class="video-header">
 
     <?php
 
@@ -9,7 +9,7 @@
 
     $q = "SELECT * FROM `video`";
     $query = mysqli_query($conn, $q);
-    
+
     while ($row = mysqli_fetch_array($query)) {
         $numero = $row['id'];
     }
@@ -27,7 +27,7 @@
                 var current = 0;
                 var videos = [];
                 var red = 10;
-                
+
                 <?php while (($file = readdir($dh)) !== false) : ?>
                     <?php if (is_file($dir . '/' . $file)) : ?>
 
@@ -40,7 +40,7 @@
                     playerVideo.src = videos[current];
                     current++;
                     console.log('O current é: ' + current);
-                    
+
                     playerVideo.play();
                     if (current >= videos.length) {
                         console.log('O numero é: ' + numero);
