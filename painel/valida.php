@@ -19,6 +19,9 @@ if ($btnLogin) {
 				$_SESSION['nome'] = $row_usuario['nome'];
 				$_SESSION['email'] = $row_usuario['email'];
 				header("Location: painel.php");
+				echo '<script>';
+				echo 'window.location.href = "painel.php"';
+				echo '</script>';
 			} else {
 				$_SESSION['msg'] = "Login e senha incorreto!";
 				header("Location: index.php");

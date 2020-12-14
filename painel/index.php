@@ -18,38 +18,42 @@ session_start();
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-  <!-- CSS Files -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../assets/css/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
-
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+  <!-- <script src="../assets/js/jquery.min.js"></script> -->
 </head>
 
 <!-- Formulário de Login -->
 
 <body>
-  <h2>Área restrita</h2>
-  <?php
-  if (isset($_SESSION['msg'])) {
-    echo $_SESSION['msg'];
-    unset($_SESSION['msg']);
-  }
-  ?>
-  <form method="POST" action="valida.php">
-    <label>Usuário</label>
-    <input type="text" name="usuario" placeholder="Digite o seu usuário"><br><br>
+  <div class="container  mt-3">
+    <h2 class="text-center mb-5">Área restrita</h2>
 
-    <label>Senha</label>
-    <input type="password" name="senha" placeholder="Digite a sua senha"><br><br>
+    <?php
+    if (isset($_SESSION['msg'])) {
+      echo $_SESSION['msg'];
+      unset($_SESSION['msg']);
+    }
+    ?>
 
-    <input type="submit" name="btnLogin" value="Acessar">
+    <div class="col-lg-8 m-auto">
+      <form method="POST" action="valida.php">
+        <div class="form-group">
+          <label>Nome do video:</label>
+          <input type="text" name="usuario" class="form-control" placeholder="Digite o seu usuário"><br><br>
+        </div>
 
-  </form>
-  <br><br><br>
-  Usuário cadastrado no Banco de Dados<br>
-  Usuário: cesar@celke.com.br <br>
-  Senha: 123 <br>
+        <div class="form-group">
+          <label>Senha</label>
+          <input type="password" name="senha" class="form-control" placeholder="Digite a sua senha"><br><br>
+        </div>
+
+        <input type="submit" class="btn btn-primary" name="btnLogin" value="Acessar">
+
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>
