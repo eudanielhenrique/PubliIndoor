@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,85 +26,48 @@
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
 
-<body class="login-page sidebar-collapse">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
-    <div class="container">
-      <div class="navbar-translate">
-        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-bar top-bar"></span>
-          <span class="navbar-toggler-bar middle-bar"></span>
-          <span class="navbar-toggler-bar bottom-bar"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="../assets/img/blurred-image-1.jpg">
-      </div>
-    </div>
-  </nav>
-  <!-- End Navbar -->
-  <div class="page-header clear-filter" filter-color="orange">
-    <div class="page-header-image" style="background-image:url(../assets/imagem/pic03.jpg)"></div>
-    <div class="content">
-      <div class="container">
-        <div class="col-md-4 ml-auto mr-auto">
-          <div class="card card-login card-plain">
-            <form class="form" method="" action="">
-              <div class="card-header text-center">
-                <div class="logo-container">
-                  <img src="../assets/img/now-logo.png" alt="">
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="input-group no-border input-lg">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="now-ui-icons users_circle-08"></i>
-                    </span>
-                  </div>
-                  <input type="text" id="name" class="form-control" placeholder="First Name...">
-                </div>
-                <div class="input-group no-border input-lg">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="now-ui-icons text_caps-small"></i>
-                    </span>
-                  </div>
-                  <input type="password" id="pass" class="form-control" />
-                </div>
-              </div>
-              <div class="card-footer text-center">
-                <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Get Started</a>
-                <div class="pull-left">
-                  <h6>
-                    <a href="#pablo" class="link">Create Account</a>
-                  </h6>
-                </div>
-                <div class="pull-right">
-                  <h6>
-                    <a href="#pablo" class="link">Need Help?</a>
-                  </h6>
-                </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
-  <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
-  <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-  <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-  <script src="../assets/js/plugins/bootstrap-switch.js"></script>
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-  <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-  <script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
+<!-- Formulário de Login -->
+
+<body>
+  <h2>Área restrita</h2>
+  <?php
+  if (isset($_SESSION['msg'])) {
+    echo $_SESSION['msg'];
+    unset($_SESSION['msg']);
+  }
+  ?>
+  <form method="POST" action="valida.php">
+    <label>Usuário</label>
+    <input type="text" name="usuario" placeholder="Digite o seu usuário"><br><br>
+
+    <label>Senha</label>
+    <input type="password" name="senha" placeholder="Digite a sua senha"><br><br>
+
+    <input type="submit" name="btnLogin" value="Acessar">
+
+  </form>
+  <br><br><br>
+  Usuário cadastrado no Banco de Dados<br>
+  Usuário: cesar@celke.com.br <br>
+  Senha: 123 <br>
+</body>
+
+</html>
+<!--   Core JS Files   -->
+<script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="../assets/js/plugins/bootstrap-switch.js"></script>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+<script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+<script src="../assets/js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
+
 </body>
 
 </html>

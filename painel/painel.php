@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!empty($_SESSION['id'])) {
+} else {
+  $_SESSION['msg'] = "Área restrita";
+  header("Location: login.php");
+}
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -10,8 +19,6 @@
   <title>Dashboard Template · Bootstrap v5.0</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-
-
 
   <!-- Bootstrap core CSS -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -44,10 +51,12 @@
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
-        <a class="nav-link" href="#">Sign out</a>
+        <a class="nav-link" href="logout.php">
+          <span data-feather="log-out"></span>
+          Sair
+        </a>
       </li>
     </ul>
   </header>
@@ -64,66 +73,33 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file"></span>
-                Orders
+              <a class="nav-link" href="AddAviso.php">
+                <span data-feather="alert-triangle"></span>
+                Adicionar aviso
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="shopping-cart"></span>
-                Products
+              <a class="nav-link" href="AddVideo.php">
+                <span data-feather="film"></span>
+                Adicionas Video
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="users"></span>
-                Customers
+              <a class="nav-link" href="listVideos.php">
+                <span data-feather="list"></span>
+                Avisos ativo
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="bar-chart-2"></span>
-                Reports
+              <a class="nav-link" href="../mural.php">
+                <span data-feather="tv"></span>
+                Videos ativos
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="layers"></span>
                 Integrations
-              </a>
-            </li>
-          </ul>
-
-          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Saved reports</span>
-            <a class="link-secondary" href="#" aria-label="Add a new report">
-              <span data-feather="plus-circle"></span>
-            </a>
-          </h6>
-          <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Current month
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Last quarter
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Social engagement
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Year-end sale
               </a>
             </li>
           </ul>
@@ -137,6 +113,5 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
       <script src="../assets/js/dashboard.js"></script>
 </body>
-<iframe src="AddAviso.php" width="100%" height="900"></iframe>
 
 </html>

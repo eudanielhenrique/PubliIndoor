@@ -64,10 +64,6 @@
         position: absolute;
         overflow: inherit;
         cursor: pointer;
-
-        &:hover {
-            fill: #888;
-        }
     }
 </style>
 
